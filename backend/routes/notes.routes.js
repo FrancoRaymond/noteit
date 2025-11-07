@@ -9,3 +9,11 @@ router.put("/:id", updateNote)
 router.delete("/:id", deleteNote)
 
 export default router
+
+// B0SgBvGdHX4samVg
+
+// francoreason_db_user
+
+// B0SgBvGdHX4samVg
+
+// mongodb+srv://francoreason_db_user:B0SgBvGdHX4samVg@cluster0.qgaky36.mongodb.net/?appName=Cluster0
