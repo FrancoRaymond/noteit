@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+body{
+    font-family: "Elms Sans", sans-serif;
+    margin: o auto;
+    max-width: 1440px;
+    @apply bg-gray-950 
+}
+
+.logoFont{
+    font-family: "Playfair Display", serif;
+}
