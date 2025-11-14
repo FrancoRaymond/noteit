@@ -10,7 +10,7 @@ const NoteCard = ({note}) => {
         <h2 className='font-semibold text-gray-100'>{note.title}</h2>
         <p className='text-gray-300 text-sm'>{note.content}</p>
         <div className='flex text-xs items-center gap-5 mt-5'>
-            <span className='grow text-gray-400'>{formatDate(note.createAt)}</span>
+            <span className='grow text-gray-400'>{formatDate(note.createdAt)}</span>
             <button className='cursor-pointer'><img src={edit} alt="" className='size-4 hover:scale-110 transition duration-200'/></button>
             <button className='cursor-pointer'><img src={del} alt="" className='size-4 hover:scale-110 transition duration-200'/></button>
         </div>
