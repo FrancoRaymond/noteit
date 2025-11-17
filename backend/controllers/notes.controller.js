@@ -10,7 +10,7 @@ export const getNotes = async (req, res) => {
     }
 }
 
-export const getNoteById = async () => {
+export const getNoteById = async (req, res) => {
     try {
         const receivedNote = await note.findById(req.params.id)
         if(!receivedNote){
