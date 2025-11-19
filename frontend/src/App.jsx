@@ -13,6 +13,7 @@ function App() {
         <Route path='/' element={ <Home /> } />
         <Route path='/create' element={ <CreateNote /> } />
         <Route path='/note/:id' element={ <NoteDetail /> } />
+        <Route path='*' element={<Home /> } />
       </Routes>
     </div>
   )
