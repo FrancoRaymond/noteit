@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
+import api from '../lib/axios'
 import toast from 'react-hot-toast'
-import axios from 'axios'
 import back from '../assets/icons/back.svg'
 import del from '../assets/icons/delete.svg'
 
@@ -16,7 +16,7 @@ const NoteDetail = () => {
     const fetchNote = async () => {
       try {
         setLoading(true)
-        const res = await axios.get(`http://localhost:5001/api/notes/${id}`)
+        const res = await api.get(`/notes/${id}`)
         setNote(res.data)
       } catch (error) {
         console.log("Error fetching note ",error)
@@ -35,7 +35,7 @@ const NoteDetail = () => {
 
     try {
 
-      await axios.delete(`http://localhost:5001/api/notes/${id}`)
+      await api.delete(`/notes/${id}`)
       toast.success("Note deleted successfully")
       navigate('/')
 
@@ -56,7 +56,7 @@ const NoteDetail = () => {
     }
     setSaving(true)
     try {
-      await axios.put(`http://localhost:5001/api/notes/${id}`, note)
+      await api.put(`/notes/${id}`, note)
       toast.success("Note updated successfully")
       navigate('/')
     } catch (error) {

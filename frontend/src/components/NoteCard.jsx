@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { formatDate } from '../utils/FormatDate'
-import axios from 'axios'
+import api from '../lib/axios'
 import toast from 'react-hot-toast'
 import del from '../assets/icons/delete.svg'
 import edit from '../assets/icons/edit.svg'
@@ -15,7 +15,7 @@ const NoteCard = ({note, setNotes}) => {
     }
     try {
 
-      await axios.delete(`http://localhost:5001/api/notes/${id}`)
+      await api.delete(`/notes/${id}`)
       setNotes((prev) => prev.filter(note => note._id !== id))
       toast.success("Note deleted successfully")
 
