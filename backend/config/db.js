@@ -1,12 +1,19 @@
-import mongoose from 'mongoose'
+import { Pool } from 'pg';
+import 'dotenv/config';
 
-export const connectDb = async () => {
-    try {
-        await mongoose.connect(process.env.MONGO_URI)
+const isProduction = process.env.NODE_ENV === 'production';
 
-        console.log("mongoDb connected successfully")
-    } catch (error) {
-        console.log("error connecting to mongodb", error)
-        process.exit(1)
-    }
-}
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ...(isProduction && {
+    ssl: { rejectUnauthorized: false },
+  }),
+});
+
+pool.on('error', (err) => {
+  console.error('Unexpected idle PostgreSQL client error:', err);
+  process.exit(-1);
+});
+
+export const query = (text, params) => pool.query(text, params);
+export default pool;
