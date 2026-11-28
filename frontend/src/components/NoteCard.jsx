@@ -33,8 +33,8 @@ const NoteCard = ({note, setNotes}) => {
       <p className='text-gray-300 text-sm mb-3'>{note.content.slice(0, 125) + "..."}</p>
       <div className='flex text-xs items-center gap-5 mt-auto'>
           <span className='grow text-gray-400'>{formatDate(note.created_at)}</span>
-          <button className='cursor-pointer'><img src={edit} alt="" className='size-4 hover:scale-110 transition duration-200'/></button>
-          <button onClick={(e) => handleDelete(e, note.id)} className='cursor-pointer'><img src={del} alt="" className='size-4 hover:scale-110 transition duration-200'/></button>
+          <button aria-label="Edit note" className='cursor-pointer'><img src={edit} alt="" className='size-4 hover:scale-110 transition duration-200'/></button>
+          <button aria-label="Delete note" onClick={(e) => handleDelete(e, note.id)} className='cursor-pointer'><img src={del} alt="" className='size-4 hover:scale-110 transition duration-200'/></button>
       </div>
     </Link>
   )
